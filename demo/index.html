@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lexical Retrieval Bench — tiny demo</title>
+<style>body{margin:3rem auto;max-width:850px;padding:0 1.2rem;background:#101921;color:#e7f0ef;font:18px/1.6 system-ui}h1{font-size:2.5rem;line-height:1.1}small{color:#94d5bf}code{color:#efcb84}table{border-collapse:collapse;width:100%}td,th{padding:.7rem;text-align:left;border-bottom:1px solid #456}details{margin:1.5rem 0}a{color:#94d5bf}</style>
+<small>OFFLINE · ORIGINAL SYNTHETIC EXAMPLE</small><h1>What did the query actually match?</h1>
+<p>Query: <code>amber amber absent</code>. Repeated query terms count once. An absent term adds nothing.</p>
+<table><caption>Unique-token overlap — hand-calculated tiny example</caption><tr><th>ID</th><th>Document</th><th>Score</th><th>Explanation</th></tr>
+<tr><td>a</td><td>amber amber</td><td>1</td><td>amber contributes 1</td></tr><tr><td>b</td><td>blue</td><td>0</td><td>No matched terms</td></tr><tr><td>c</td><td>(empty)</td><td>0</td><td>No matched terms</td></tr></table>
+<details open><summary>Why b precedes c</summary><p>Equal scores use ascending document ID. A tie is an ordering rule, not evidence of relevance.</p></details>
+<details><summary>Try the real library offline</summary><p>From the source directory run <code>python3 -m lexical_retrieval_bench.demo</code>. The command scores this three-document example using the shared library. The JSON CLI accepts your bounded corpus through stdin.</p></details>
+<p>This page is a static explanation with no network assets or duplicated scoring code. Its hand-written numbers are demo values, not benchmark results. TF-IDF and the declared BM25 variant have different formulas; see <a href="../PLAN.md">the frozen protocol</a>.</p>
+</html>
